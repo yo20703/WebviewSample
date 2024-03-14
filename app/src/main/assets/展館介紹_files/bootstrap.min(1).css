@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta charset="utf-8">
+                <script>
+                  if(!location.host.match(/^www\./))
+                    location.host = 'www.'+location.host;
+                </script>
+                <base href=/ >
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="台北南港展覽館，適合舉辦大型演唱會、直銷會議、獎勵旅遊、宗教集會及公司餐會(含尾牙、春酒)等。">
+		<meta name="keywords" content="台北南港展覽館, 南港展覽館, 南港, 展覽, 演唱會, 會議, 餐會, 尾牙, 春酒, 場地, 租借, 場地租借">
+		<meta property="og:title" content="南港展覽館" />
+		<meta property="og:description" content="台北南港展覽館，適合舉辦大型演唱會、直銷會議、獎勵旅遊、宗教集會及公司餐會(含尾牙、春酒)等。" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.tainex.com.tw/" />
+		<meta property="og:site_name" content="南港展覽館" />
+		<meta property="og:image" content="https://www.tainex.com.tw/images/1200x630.jpg" />
+		<link rel="shortcut icon" href="images/tainex_ico.svg" type="favicon.ico">
+		<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=cwTeXYen" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- bootstrap -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="dist/css/dist/bootstrap.min.css">
+		<!-- reset -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+		<!-- mdi -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.8.55/css/materialdesignicons.min.css">
+		<!-- aos -->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<!-- fancybox -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" charset="utf-8"></script>
+		<!-- swiper -->
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+		<!-- Customiz -->
+		<link rel="stylesheet" href="css/main.css">
+                <style>
+                  .mr-0\.5 {margin-right: 0.125rem}
+                  .underline {text-decoration: underline}
+                </style>
+    <title>南港展覽館</title>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            AOS.init({
+                once: true,
+                duration: 1200
+            })
+            //可以自動彈出來
+            // $.fancybox.open($('#hidden-content'))
+        })
+    </script>
+
+</head>
+
+
+  <body><div id=body></div>
+    <script src=compiled.js></script>
+  </body>
+	<script>
+	$(window).scroll(function() {
+		if(!$(".side_list").position()){
+                        $(".bread_crumb").removeClass("gofixed")
+			return
+		}
+		if(!$(".side_menucontent").position()){
+			return
+		}
+		if($(".side_menucontent").height()<=$(".side_list").height()){
+			return
+		}
+		var lastScrollTop = 0;
+		var winww = $(window).width()
+		var winhh = $(window).height()
+		var dochh = $(document).height()
+		var breadhh = $(".bread_crumb").height()
+		var bannerhh = $(".page_banner").height()
+		var hheader = $("header").height()
+		var footerhh = $("footer").height()
+		var baseheight = bannerhh+30
+		var barpos = $(".side_list").position().top
+		var breadpos = $(".bread_crumb").position().top
+		var footerpos = $("footer").position().top
+		var wtop = $(this).scrollTop();
+		var sidetop = hheader+breadhh+30
+		var pb = 0
+		if(winww>=768){
+		}else{
+			baseheight = baseheight+breadhh
+			sidetop = bannerhh+30
+			pb = 80
+
+		}
+		// console.log("wtop:"+wtop);
+		// console.log("baseheight:"+baseheight);
+		// console.log("barpos:"+barpos);
+		// console.log("footerpos:"+footerpos);
+		if (wtop > lastScrollTop){
+	     // downscroll code
+			 if(wtop>=baseheight){
+				 $(".side_list").addClass("gofixed")
+				 $(".side_list").css("top",sidetop)
+				 $(".side_list").css("padding-bottom",pb)
+				 $(".bread_crumb").addClass("gofixed")
+	 			 $(".bread_crumb").css("top",hheader)
+
+				 var botpos = wtop+$(".side_list").height()
+
+				 //console.log("winhh:"+winhh);
+				 //console.log("dochh:"+dochh);
+				 //console.log("wtop:"+wtop);
+				 if(winww>=768){
+					 var pp =(wtop+bannerhh+breadhh+$(".side_list").height())+60
+						var aa = dochh-pp
+						var sub = footerhh-aa
+						if(sub>=0){
+							var bb = sidetop-sub
+							$(".side_list").css("top",bb)
+							//console.log("=====bb:"+bb);
+						}
+						//console.log("pp:"+pp);
+						//console.log("aa:"+aa);
+						//console.log("sub:"+sub);
+						//console.log("==================")
+
+				 }
+				 // console.log("1111");
+			 }else{
+				 $(".side_list").removeClass("gofixed")
+ 				 $(".side_list").css("top","")
+				 $(".bread_crumb").removeClass("gofixed")
+	 			 $(".bread_crumb").css("top","")
+				 $(".side_list").css("padding-bottom","")
+				 // console.log("222");
+			 }
+	  } else {
+	     // upscroll code
+			 if(wtop<=hheader){
+				 // console.log("333");
+				 $(".side_list").removeClass("gofixed")
+ 				 $(".side_list").css("top","")
+				 $(".bread_crumb").removeClass("gofixed")
+	 			 $(".bread_crumb").css("top","")
+				 $(".side_list").css("padding-bottom","")
+			 }else{
+				 // console.log("444");
+			 }
+	  }
+	  lastScrollTop = wtop;
+		//
+		// console.log("baseheight:"+baseheight);
+		// console.log("wtop:"+wtop);
+		// console.log("barpos:"+barpos);
+		// console.log("breadpos:"+breadpos);
+		// console.log("======")
+	});
+
+	</script>
+</html>
